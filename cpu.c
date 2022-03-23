@@ -203,8 +203,8 @@ cpu_exec(Cpu *cpu)
 		}
 		
 		break;
-	case 7: // mov: move src into dst
-		printf("[CPU] mov %d, %d\n", dst, src);
+	case 7: // xchg: exchange src and dst
+		printf("[CPU] xchg %d, %d\n", dst, src);
 		tmp_content = src_content;
 		src_content = dst_content;
 		dst_content = tmp_content;
