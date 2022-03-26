@@ -255,7 +255,7 @@ cpu_exec(Cpu *cpu)
 		break;
 	case 11: // cmp compares dst and src
 		printf("[CPU] cmp %s, %s\n", regname(dst), regname(src));
-		carrier_tmp = dst_content + src_content;
+		carrier_tmp = dst_content - src_content;
 
 		if (DOWNTO(carrier_tmp, 15, 0) == 0)
 			cpu->zf = 1;

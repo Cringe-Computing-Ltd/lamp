@@ -15,9 +15,15 @@ uint8_t rom[] = {
 int
 main()
 {
+	FILE *fp = fopen("out.bin", "r+");
+
 	Computer computer;
 	computer_init(&computer);
-	mem_load_rom(&computer.mem, (uint16_t*)rom, sizeof(rom));
+
+	mem_load_rom_file(&computer.mem, fp);
+
+	fclose(fp);
+
 	while (1)
 		computer_clk(&computer);
 }
